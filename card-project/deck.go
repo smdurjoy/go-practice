@@ -18,9 +18,15 @@ func newDeck() deck {
 
 	return cards
 }
- 
+
 func (d deck) print() {
-	for _, card := range d {
-		fmt.Println(card)
+	for i, card := range d {
+		fmt.Println(i, card)
 	}
+}
+
+func deal (d deck, handSize int) (deck, deck) {
+	// will return 2 deck type cards slice first one is from begining to < handSize index
+	// another from handSize index to very last
+	return d[:handSize], d[handSize:]
 }
